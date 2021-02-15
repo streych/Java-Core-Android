@@ -2,43 +2,80 @@ package lesson2;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.*;
 import java.util.Arrays;
 
 public class task2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        boolean ex = true;
+        InputStream input = System.in;
+        Reader inputStream = new InputStreamReader(input);
+        BufferedReader reader = new BufferedReader(inputStream);
 
-        //Task2.1
-        int[] element1 = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        element(element1);
+        while (ex)
+        {
+            String stroka = reader.readLine();
+            int numberWork = Integer.parseInt(stroka);
 
-        //Task2.2
-        array8();
+            switch (numberWork)
+            {
+                case 1:
+                    //Task2.1
+                    int[] element1 = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+                    element(element1);
+                    System.out.println();
+                    break;
+                case 2:
+                    //Task2.2
+                    array8();
+                    System.out.println();
+                    break;
+                case 3:
+                    //Task2.3
+                    arrMinSix();
+                    System.out.println();
+                    break;
+                case 4:
+                    //Task2.4
+                    arraySque();
+                    System.out.println();
+                    break;
+                case 5:
+                    //Task2.5
+                    int[] arr = {2,-3,5,8,9,4,-7,2,6,5,-4,1};
+                    maxMinArray(arr);
+                    System.out.println();
+                    break;
+                case 6:
+                    //Task2.6
+                    int[] arr2 = {1,1,1,2,1};
+                    int[] arr3 = {2, 2, 2, 1, 2, 2, 10, 1};
+                    int[] arr4 = {5, 2, 2, 1, 2, 2, 10, 1};
+                    int[] arr5 = {};
+                    sumStoron(arr2);
+                    sumStoron(arr3);
+                    sumStoron(arr4);
+                    sumStoron(arr5);
+                    System.out.println();
+                    break;
+                case 7:
+                    //Task 2.7
+                    int[] arr7 = {1,2,3};
+                    arraNum(arr7, -1);
+                    int[] arr6 = {3,5,6,1};
+                    arraNum(arr6, -2);
+                    System.out.println();
+                    break;
+                case 0:
+                    System.out.println("Спасибо. Возвращайтесь к нам снова");
+                    ex = false;
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Такого задания нет");
+            }
+        }
 
-        //Task2.3
-        arrMinSix();
-
-        //Task2.4
-        arraySque();
-
-        //Task2.5
-        int[] arr = {2,-3,5,8,9,4,-7,2,6,5,-4,1};
-        maxMinArray(arr);
-
-        //Task2.6
-        int[] arr2 = {1,1,1,2,1};
-        int[] arr3 = {2, 2, 2, 1, 2, 2, 10, 1};
-        int[] arr4 = {5, 2, 2, 1, 2, 2, 10, 1};
-        int[] arr5 = {};
-        sumStoron(arr2);
-        sumStoron(arr3);
-        sumStoron(arr4);
-        sumStoron(arr5);
-
-        //Task 2.7
-        int[] arr7 = {1,2,3};
-        arraNum(arr7, -1);
-        int[] arr6 = {3,5,6,1};
-        arraNum(arr6, -2);
     }
     //Функция вывода массива.
      public static void arrayOut(int[] arr){
@@ -176,25 +213,19 @@ public class task2 {
     // При каком n в какую сторону сдвиг можете выбирать сами.
     public static void arraNum(int[] arr, int num)
     {
-
         for (int i = num; i < 0; i++) {
             int temp1 = arr[arr.length -1];
+            System.out.println("Изначальный массив: ");
             arrayOut(arr);
             System.out.println();
-
-            //temp1 = arr[arr.length];
             for (int j = arr.length; j > 1; j--) {
                 arr[j-1] = arr[j - 2];
             }
             arr[0] = temp1;
         }
-
-
-
-
+        System.out.println("После смещения: ");
         arrayOut(arr);
-
+        System.out.println();
     }
-
     //endregion
 }
