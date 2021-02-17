@@ -8,7 +8,7 @@ public class GuessNumber {
      При каждой попытке компьютер должен сообщить, больше ли указанное пользователем число, чем загаданное, или меньше.
      После победы или проигрыша выводится запрос – «Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет).
      */
-    public static void main(String[] args) throws IOException {
+    public static void guessNumber() throws IOException {
 
         int random = (int) (Math.random() * 10);//случайное число
         int userTryMax = 3; //попытки пользователя
